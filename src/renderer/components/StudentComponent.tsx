@@ -13,15 +13,15 @@ export default function StudentComponent() {
 
   return (
     <div>
-      <p>intelligence: {progress.intelligence}</p>
-      <p>personality: {progress.personality}</p>
-      <p>charm: {progress.charm}</p>
-      <p>willingness: {progress.willingness}</p>
-      <p>luck: {progress.luck}</p>
-      <p>sex: {progress.sex}</p>
-      <p>knowledge: {progress.charm}</p>
-      <p>happiness: {progress.charm}</p>
-      <p>credit: {progress.charm}</p>
+      <p>intelligence: {progress?.intelligence}</p>
+      <p>personality: {progress?.personality}</p>
+      <p>charm: {progress?.charm}</p>
+      <p>willingness: {progress?.willingness}</p>
+      <p>luck: {progress?.luck}</p>
+      <p>sex: {progress?.sex}</p>
+      <p>knowledge: {progress?.charm}</p>
+      <p>happiness: {progress?.charm}</p>
+      <p>credit: {progress?.charm}</p>
       <button type="button" onClick={onRandomStudentClick}>
         Random
       </button>
