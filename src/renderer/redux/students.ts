@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { handleActions } from 'redux-actions';
-import { normalRandom } from 'renderer/utils/random';
+import { normalRandom } from '../utils/random';
 import { IStudent } from './interfaces/studentInterface';
 
 const STUDENT_RANDOM = 'STUDENT/RANDOM';
