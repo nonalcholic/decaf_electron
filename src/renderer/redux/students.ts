@@ -23,7 +23,8 @@ const initialState: IStudent = {
 
 export default handleActions<IStudent, any>(
   {
-    [STUDENT_RANDOM]: (state: any, action: any) => {
+    [STUDENT_RANDOM]: () => {
+      // state: any, action: any
       return {
         intelligence: normalRandom(), // 지성
         personality: normalRandom(), // 인성
