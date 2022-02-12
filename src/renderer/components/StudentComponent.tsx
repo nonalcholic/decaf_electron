@@ -1,7 +1,7 @@
 // import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IReducer } from 'renderer/redux';
-import { randomStudent } from 'renderer/redux/students';
+import { IReducer } from '../redux';
+import { randomStudent } from '../redux/students';
 
 export default function StudentComponent() {
   const progress = useSelector((state: IReducer) => state.students);
