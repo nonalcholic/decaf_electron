@@ -1,4 +1,4 @@
-import StudentComponent from './StudentComponent';
+import StudentComponent from './components/StudentComponent';
 
 export default function Game() {
   return (
