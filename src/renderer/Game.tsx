@@ -64,7 +64,7 @@ export default function Game() {
   return (
     <div>
       <University />
-      {game.isRunning ? (
+      {game?.isRunning ? (
         <button type="button">Running...</button>
       ) : (
         <button type="button" onClick={updateGame}>
