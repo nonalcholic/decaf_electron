@@ -12,6 +12,15 @@ npm install # Install packages
 npm start
 ```
 
+## Test
+
+Please run test before pushing your code.
+
+```bash
+npm run build
+npm run test
+```
+
 ## Production
 
 To package apps for the local platform:
