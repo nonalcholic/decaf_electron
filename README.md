@@ -17,8 +17,10 @@ npm start
 Please run test before pushing your code.
 
 ```bash
-npm run build
-npm run test
+npm run package
+npm run lint
+npm exec tsc
+npm test
 ```
 
 ## Production
