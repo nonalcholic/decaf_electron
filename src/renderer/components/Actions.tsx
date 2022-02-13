@@ -17,7 +17,7 @@ export default function Actions() {
         type="checkbox"
         name="building"
         value="restraunt"
-        checked={actions?.buildings.restaurant as boolean}
+        checked={actions?.buildings?.restaurant as boolean}
         onChange={(e) => buildRestraunt(e.target.checked)(dispatch)}
       />{' '}
       Restraunt
@@ -25,7 +25,7 @@ export default function Actions() {
         type="checkbox"
         name="building"
         value="dormitory"
-        checked={actions?.buildings.dormintory as boolean}
+        checked={actions?.buildings?.dormintory as boolean}
         onChange={(e) => buildDormitory(e.target.checked)(dispatch)}
       />{' '}
       Dormitory
@@ -33,7 +33,7 @@ export default function Actions() {
         type="checkbox"
         name="building"
         value="cafe"
-        checked={actions?.buildings.cafe as boolean}
+        checked={actions?.buildings?.cafe as boolean}
         onChange={(e) => buildCafe(e.target.checked)(dispatch)}
       />{' '}
       Cafe
@@ -41,7 +41,7 @@ export default function Actions() {
         type="checkbox"
         name="building"
         value="library"
-        checked={actions?.buildings.library as boolean}
+        checked={actions?.buildings?.library as boolean}
         onChange={(e) => buildLibrary(e.target.checked)(dispatch)}
       />{' '}
       Library
