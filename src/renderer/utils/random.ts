@@ -8,3 +8,8 @@ export function normalRandom(): number {
   if (num > 1 || num < 0) return normalRandom(); // resample between 0 and 1
   return num;
 }
+
+export function binaryRandom(): number {
+  const threshold = Math.random();
+  return threshold < 0.5 ? 0 : 1;
+}

@@ -1,12 +1,17 @@
 import { Dispatch } from 'redux';
 import { handleActions } from 'redux-actions';
-import { normalRandom } from '../utils/random';
+import { normalRandom, binaryRandom } from '../utils/random';
 import { IStudent } from './interfaces/studentInterface';
 
-const STUDENT_RANDOM = 'STUDENT/RANDOM';
+const UPDATE_KNOWLEDGE = 'UPDATE/KNOWLEDGE';
+const UPDATE_HAPPINESS = 'UPDATE/HAPPINESS';
 
-export const randomStudent = () => (dispatch: Dispatch) => {
-  dispatch({ type: STUDENT_RANDOM });
+export const updateKnowledge = (value: number) => (dispatch: Dispatch) => {
+  dispatch({ type: UPDATE_KNOWLEDGE, payload: value });
+};
+
+export const updateHappiness = (value: number) => (dispatch: Dispatch) => {
+  dispatch({ type: UPDATE_HAPPINESS, payload: value });
 };
 
 const initialState: IStudent = {
@@ -15,7 +20,7 @@ const initialState: IStudent = {
   charm: normalRandom(), // 매력
   willingness: normalRandom(), // 의지
   luck: normalRandom(), // 운 ()
-  sex: normalRandom(), // 성별 (0: male, 1: female)
+  sex: binaryRandom(), // 성별 (0: male, 1: female)
   knowledge: normalRandom(), // 지식
   happiness: normalRandom(), // 행복
   credit: normalRandom(), // 학점
@@ -23,18 +28,16 @@ const initialState: IStudent = {
 
 export default handleActions<IStudent, any>(
   {
-    [STUDENT_RANDOM]: () => {
-      // state: any, action: any
+    [UPDATE_KNOWLEDGE]: (state: IStudent, action: any) => {
       return {
-        intelligence: normalRandom(), // 지성
-        personality: normalRandom(), // 인성
-        charm: normalRandom(), // 매력
-        willingness: normalRandom(), // 의지
-        luck: normalRandom(), // 운 ()
-        sex: normalRandom(), // 성별 (0: male, 1: female)
-        knowledge: normalRandom(), // 지식
-        happiness: normalRandom(), // 행복
-        credit: normalRandom(), // 학점
+        ...state,
+        knowledge: state.knowledge + action.payload,
+      };
+    },
+    [UPDATE_HAPPINESS]: (state: IStudent, action: any) => {
+      return {
+        ...state,
+        happiness: state.happiness + action.payload,
       };
     },
   },
