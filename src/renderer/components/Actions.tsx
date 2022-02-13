@@ -4,7 +4,7 @@ import {
   buildLibrary,
   buildDormitory,
   buildCafe,
-} from 'renderer/redux/actions';
+} from '../redux/actions';
 import { IReducer } from '../redux';
 
 export default function Actions() {
