@@ -8,6 +8,7 @@ University simulation game
 Start the app in the `dev` environment:
 
 ```bash
+npm install # Install packages
 npm start
 ```
 
