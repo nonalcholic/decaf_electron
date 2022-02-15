@@ -2,15 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IReducer } from './redux';
 import University from './components/University';
 // import StudentComponent from './components/StudentComponent';
-import { runGame } from './redux/game';
-import {
-  addCafe,
-  addDormitory,
-  addLibrary,
-  addRestraunt,
-  addWeeks,
-} from './redux/university';
+import { addCafe, addDormitory, addLibrary, addRestraunt, addWeeks } from './redux/university';
 import { updateHappiness, updateKnowledge } from './redux/students';
+import { gameActions } from './redux/game';
 
 export default function Game() {
   const dispatch = useDispatch();
@@ -24,10 +18,9 @@ export default function Game() {
     updateKnowledge((university.buildings.library as number) * 0.1)(dispatch);
 
     // Happiness
-    updateHappiness(
-      (university.buildings.cafe as number) * 0.1 +
-        (university.buildings.restaurant as number) * 0.2
-    )(dispatch);
+    updateHappiness((university.buildings.cafe as number) * 0.1 + (university.buildings.restaurant as number) * 0.2)(
+      dispatch
+    );
   };
 
   // Update university with 'Actions'
@@ -56,9 +49,9 @@ export default function Game() {
   };
 
   const updateGame = () => {
-    runGame(true)(dispatch);
+    dispatch(gameActions.runGame(true));
     update();
-    runGame(false)(dispatch);
+    dispatch(gameActions.runGame(false));
   };
 
   return (
