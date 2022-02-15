@@ -6,7 +6,7 @@ const initialState: IGame = {
 };
 
 const gameSlice = createSlice({
-  name: 'config',
+  name: 'game',
   initialState,
   reducers: {
     runGame: (state: IGame, action: any) => {
