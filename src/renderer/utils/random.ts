@@ -1,3 +1,4 @@
+// FIXME: 원하는 평균과 표준편차, 그리고 최댓값/최솟값을 받아서 결과를 내도록 바꾸기
 export function normalRandom(): number {
   let u = 0;
   let v = 0;
