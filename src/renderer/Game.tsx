@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IReducer } from './redux';
 import University from './components/University';
@@ -10,6 +11,14 @@ export default function Game() {
   const game = useSelector((state: IReducer) => state.game);
   const actions = useSelector((state: IReducer) => state.actions);
   // const university = useSelector((state: IReducer) => state.university);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const openModal = () => {
+    setModalVisible(true);
+  };
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   // Update Students with 'University'
   const updateStudents = () => {};
@@ -47,7 +56,7 @@ export default function Game() {
 
   return (
     <div>
-      <University />
+      <University modalVisible={modalVisible} closeModal={closeModal} />
       {game?.isRunning ? (
         <button type="button">Running...</button>
       ) : (
@@ -55,6 +64,9 @@ export default function Game() {
           Run
         </button>
       )}
+      <button type="button" onClick={openModal}>
+        Actions
+      </button>
     </div>
   );
 }
