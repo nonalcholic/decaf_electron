@@ -171,6 +171,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/redux-actions": "^2.6.2",
     "@types/redux-mock-store": "^1.0.3",
+    "@types/styled-components": "^5.1.23",
     "@types/terser-webpack-plugin": "^5.0.4",
     "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
@@ -240,7 +241,8 @@
     "redux": "^4.1.2",
     "redux-actions": "^2.6.5",
     "redux-mock-store": "^1.5.4",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "styled-components": "^5.3.3"
   },
   "devEngines": {
     "node": ">=14.x",
