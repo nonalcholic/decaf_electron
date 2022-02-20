@@ -1,5 +1,5 @@
-import { Student } from 'renderer/objects/Student';
+import { IPerson } from 'renderer/objects/Person';
 
 export interface IStudent {
-  studentList: Student[];
+  studentList: IPerson[];
 }

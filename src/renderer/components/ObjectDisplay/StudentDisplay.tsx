@@ -1,22 +1,22 @@
 import './StudentDisplay.scss';
 import React, { useEffect, useState } from 'react';
-import { Student } from 'renderer/objects/Student';
+import { IPerson } from 'renderer/objects/Person';
 
 interface Props {
-  studentData: Student;
+  studentData: IPerson;
 }
 const StudentDisplay: React.FC<Props> = (props) => {
   const { studentData } = props;
 
   if (!studentData) return null;
   return (
-    <div>
-      <p>age: {studentData.age}</p>
-      <p>charm: {studentData.charm}</p>
-      <p>intel: {studentData.intelligence}</p>
-      <p>personality: {studentData.personality}</p>
-      <p>sex: {studentData.sex}</p>
-      <p>willingness: {studentData.willingness}</p>
+    <div className="student-display">
+      <div>age: {studentData.age}</div>
+      <div>sex: {studentData.sex}</div>
+      <div>charm: {Math.round(studentData.charm)}</div>
+      <div>intel: {Math.round(studentData.intelligence)}</div>
+      <div>personality: {Math.round(studentData.personality)}</div>
+      <div>willingness: {Math.round(studentData.willingness)}</div>
     </div>
   );
 };

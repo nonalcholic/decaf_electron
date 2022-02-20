@@ -6,15 +6,15 @@ export enum Sex {
 export interface IPerson {
   age: number;
 
-  readonly sex: Sex;
+  sex: Sex;
 
-  readonly intelligence: number;
+  intelligence: number;
 
-  readonly personality: number;
+  personality: number;
 
-  readonly charm: number;
+  charm: number;
 
-  readonly willingness: number;
+  willingness: number;
 }
 
 export abstract class Person {
@@ -30,14 +30,7 @@ export abstract class Person {
 
   protected readonly _willingness: number;
 
-  constructor({
-    age,
-    sex,
-    intelligence,
-    personality,
-    charm,
-    willingness,
-  }: IPerson) {
+  constructor({ age, sex, intelligence, personality, charm, willingness }: IPerson) {
     this._age = age;
     this._sex = sex;
     this._intelligence = intelligence;
@@ -68,5 +61,10 @@ export abstract class Person {
 
   get willingness(): number {
     return this._willingness;
+  }
+
+  // Temporary function
+  change(diff: number) {
+    this._age += diff;
   }
 }
