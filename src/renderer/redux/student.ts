@@ -9,12 +9,8 @@ const studentSlice = createSlice({
   name: 'student',
   initialState,
   reducers: {
-    //@ts-ignore
-    initStudentList: (state: IStudent, action: any) => {
-      return {
-        ...state,
-        studentList: [action.payload],
-      };
+    init: () => {
+      return { ...initialState };
     },
   },
 });
