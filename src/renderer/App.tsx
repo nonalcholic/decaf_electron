@@ -1,5 +1,5 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import MainScreen from './screens/MainScreen';
 
 export default function App() {

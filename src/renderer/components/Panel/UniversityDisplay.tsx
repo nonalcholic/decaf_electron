@@ -8,10 +8,10 @@ const UniversityPanel: React.FC<Props> = (props) => {
   const university = useSelector((state: IReducer) => state.university);
 
   return (
-    <>
+    <div>
       {`[Weeks: ${university.weeks}]`}
       {`[Reputation: ${university.reputation}]`}
-    </>
+    </div>
   );
 };
 

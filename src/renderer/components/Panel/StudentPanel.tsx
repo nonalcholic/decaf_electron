@@ -7,7 +7,7 @@ interface Props {}
 const StudentPanel: React.FC<Props> = (props) => {
   const student = useSelector((state: IReducer) => state.student);
 
-  return <>{`total students number: ${student.studentList.length}`}</>;
+  return <div>{`total students number: ${student.studentList.length}`}</div>;
 };
 
 export default StudentPanel;
