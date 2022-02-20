@@ -1,14 +1,24 @@
 import './MainScreen.scss';
-import React, { useEffect, useState } from 'react';
-import StudentPanel from 'renderer/components/Panel/StudentPanel';
-import UniversityPanel from 'renderer/components/Panel/UniversityDisplay';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { GameManagerContext } from 'renderer/manager/GameManager';
 
 interface Props {}
 const MainScreen: React.FC<Props> = (props) => {
+  const history = useNavigate();
+  const gameManager = useContext(GameManagerContext);
+
+  // const game = useSelector((state: IReducer) => state.game);
+
+  // if (!game.isRunning) return null;
+
+  const onClickStart = () => {
+    if (gameManager.startGame()) history('/game');
+  };
+
   return (
     <div className="main-screen">
-      <UniversityPanel />
-      <StudentPanel />
+      <button onClick={onClickStart}>START</button>
     </div>
   );
 };
