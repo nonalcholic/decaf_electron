@@ -1,41 +1,69 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GameAction } from 'renderer/manager/GameManager';
-import { Student } from 'renderer/objects/Student';
+import { Sex } from '../objects/Person';
+import { Student } from '../objects/Student';
+import { binaryRandom, normalRandom } from '../utils';
+import { FacilityAction, GameAction, IAction, SeasonAction } from './actions';
 import { IStudent } from './interfaces/studentInterface';
+import { IReducers } from './reducers';
 
 const initialState: IStudent = {
   studentList: [],
 };
 
-const studentSlice = createSlice({
+const studentSlice = createSlice<IStudent, IReducers<IStudent>>({
   name: 'student',
   initialState,
   reducers: {
-    initStudentList: (state: IStudent, action: any) => {
-      const studentList: Student[] = action.payload;
+    initialize: (state: IStudent, action: IAction) => {
+      const studentList: Student[] = Array(action.payload as number).fill({
+        age: 20,
+        sex: binaryRandom() as Sex,
+        intelligence: normalRandom(0, 10),
+        personality: normalRandom(0, 10),
+        charm: normalRandom(0, 10),
+        willingness: normalRandom(0, 10),
+      });
       return {
         ...state,
-        studentList: studentList,
+        studentList,
       };
     },
-    doEvent: (state: IStudent, action: any) => {
-      const gameAction: GameAction = action.payload;
-
+    execute: (state: IStudent, action: IAction) => {
+      const gameAction = action.payload as GameAction;
       switch (gameAction) {
-        case GameAction.Festival:
+        // Season
+        case SeasonAction.Festival:
           return {
             ...state,
             studentList: state.studentList.map((student) => {
               return { ...student, age: student.age - 1 };
             }),
           };
-        case GameAction.Midterm:
+        case SeasonAction.Midterm:
           return {
             ...state,
             studentList: state.studentList.map((student) => {
               return { ...student, age: student.age + 1 };
             }),
           };
+
+        // Facility
+        case FacilityAction.Cafe:
+          return {
+            ...state,
+            studentList: state.studentList.map((student) => {
+              return { ...student, willingness: student.willingness + 1 };
+            }),
+          };
+        case FacilityAction.Library:
+          return {
+            ...state,
+            studentList: state.studentList.map((student) => {
+              return { ...student, intelligence: student.intelligence + 1 };
+            }),
+          };
+        default:
+          return state;
       }
     },
   },

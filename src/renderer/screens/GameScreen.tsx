@@ -1,18 +1,22 @@
 import './GameScreen.scss';
-import React, { useContext, useEffect, useState } from 'react';
-import StudentPanel from 'renderer/components/Panel/StudentPanel';
-import UniversityPanel from 'renderer/components/Panel/UniversityDisplay';
-import { GameManagerContext } from 'renderer/manager/GameManager';
+import React, { useContext } from 'react';
+import UniversityPanel from '../components/Panel/UniversityDisplay';
+import StudentPanel from '../components/Panel/StudentPanel';
+import { GameManagerContext } from '../manager/GameManager';
 
-interface Props {}
-const GameScreen: React.FC<Props> = (props) => {
+interface Props {
+  [key: string]: never;
+}
+const GameScreen: React.FC<Props> = () => {
   const gameManager = useContext(GameManagerContext);
 
   return (
     <div className="game-screen">
       <UniversityPanel />
       <StudentPanel />
-      <button onClick={() => gameManager.play()}>RUN</button>
+      <button type="button" onClick={() => gameManager.play()}>
+        RUN
+      </button>
     </div>
   );
 };

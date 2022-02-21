@@ -1,10 +1,12 @@
 // import './UniversityDisplay.scss';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { IReducer } from 'renderer/redux';
 
-interface Props {}
-const UniversityPanel: React.FC<Props> = (props) => {
+interface Props {
+  [key: string]: never;
+}
+const UniversityPanel: React.FC<Props> = () => {
   const university = useSelector((state: IReducer) => state.university);
 
   return (

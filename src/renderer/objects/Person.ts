@@ -30,7 +30,14 @@ export abstract class Person {
 
   protected readonly _willingness: number;
 
-  constructor({ age, sex, intelligence, personality, charm, willingness }: IPerson) {
+  constructor({
+    age,
+    sex,
+    intelligence,
+    personality,
+    charm,
+    willingness,
+  }: IPerson) {
     this._age = age;
     this._sex = sex;
     this._intelligence = intelligence;

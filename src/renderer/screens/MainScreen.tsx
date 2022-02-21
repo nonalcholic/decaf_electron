@@ -1,10 +1,12 @@
 import './MainScreen.scss';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GameManagerContext } from 'renderer/manager/GameManager';
+import { GameManagerContext } from '../manager/GameManager';
 
-interface Props {}
-const MainScreen: React.FC<Props> = (props) => {
+interface Props {
+  [key: string]: never;
+}
+const MainScreen: React.FC<Props> = () => {
   const history = useNavigate();
   const gameManager = useContext(GameManagerContext);
 
@@ -14,7 +16,9 @@ const MainScreen: React.FC<Props> = (props) => {
 
   return (
     <div className="main-screen">
-      <button onClick={onClickStart}>START</button>
+      <button type="button" onClick={onClickStart}>
+        START
+      </button>
     </div>
   );
 };

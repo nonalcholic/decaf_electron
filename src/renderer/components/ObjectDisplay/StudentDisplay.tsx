@@ -1,5 +1,5 @@
 import './StudentDisplay.scss';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IPerson } from 'renderer/objects/Person';
 
 interface Props {
