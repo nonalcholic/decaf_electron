@@ -2,7 +2,7 @@ import './StudentPanel.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { IReducer } from 'renderer/redux';
-import StudentDisplay from '../ObjectDisplay/StudentDisplay';
+import StudentDisplay from '../objectDisplay/StudentDisplay';
 
 interface Props {
   [key: string]: never;

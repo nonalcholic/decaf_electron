@@ -1,7 +1,7 @@
 import './GameScreen.scss';
 import React, { useContext } from 'react';
-import UniversityPanel from '../components/Panel/UniversityDisplay';
-import StudentPanel from '../components/Panel/StudentPanel';
+import UniversityPanel from '../components/panel/UniversityDisplay';
+import StudentPanel from '../components/panel/StudentPanel';
 import { GameManagerContext } from '../manager/GameManager';
 
 interface Props {
