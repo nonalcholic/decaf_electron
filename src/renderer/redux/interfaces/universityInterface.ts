@@ -1,4 +1,4 @@
-export interface IUniversity {
+export interface UniversityRedux {
   weeks: number;
   reputation: number;
 }

@@ -14,7 +14,7 @@ const StudentPanel: React.FC<Props> = () => {
   return (
     <div className="student-panel">
       {student.studentList.map((s) => (
-        <StudentDisplay studentData={s} />
+        <StudentDisplay key={s.id} studentData={s} />
       ))}
     </div>
   );

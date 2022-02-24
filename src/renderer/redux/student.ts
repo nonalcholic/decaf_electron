@@ -17,6 +17,7 @@ const studentSlice = createSlice<StudentRedux, IReducers<StudentRedux>>({
     initialize: (state: StudentRedux, action: IAction) => {
       // FIXME: Student, IStudent, Person... 정리하기
       const studentList: IStudent[] = Array(action.payload as number).fill({
+        id: 1,
         age: 20,
         sex: binaryRandom() as Sex,
         intelligence: normalRandom(0, 10),
