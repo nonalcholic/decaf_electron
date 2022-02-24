@@ -18,7 +18,7 @@ const universitySlice = createSlice<IUniversity, IReducers<IUniversity>>({
     execute: (state: IUniversity, action: IAction) => {
       const gameAction = action.payload as GameAction;
       switch (gameAction) {
-        // Season
+        // Default
         case DefaultAction.Weeks:
           return {
             ...state,

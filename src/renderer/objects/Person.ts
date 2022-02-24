@@ -17,6 +17,7 @@ export interface IPerson {
   willingness: number;
 }
 
+// FIXME: Person 클래스가 더이상 필요하지 않음
 export abstract class Person {
   protected _age: number;
 
