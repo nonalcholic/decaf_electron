@@ -1,5 +1,6 @@
 import './GameScreen.scss';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import useModal from 'renderer/hooks/useModal';
 import UniversityPanel from '../components/panel/UniversityDisplay';
 import StudentPanel from '../components/panel/StudentPanel';
 import { GameManagerContext } from '../manager/GameManager';
@@ -10,6 +11,8 @@ interface Props {
 const GameScreen: React.FC<Props> = () => {
   const gameManager = useContext(GameManagerContext);
 
+  const [selectModal, openSelectModal, closeSelectModal] = useModal(<>hello</>);
+
   return (
     <div className="game-screen">
       <UniversityPanel />
@@ -17,6 +20,10 @@ const GameScreen: React.FC<Props> = () => {
       <button type="button" onClick={() => gameManager.play()}>
         RUN
       </button>
+      <button type="button" onClick={() => openSelectModal()}>
+        select
+      </button>
+      {selectModal}
     </div>
   );
 };
