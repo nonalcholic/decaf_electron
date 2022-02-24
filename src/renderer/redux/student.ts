@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IStudent } from 'renderer/objects/Student';
 import { Sex } from '../objects/Person';
-import { Student } from '../objects/Student';
 import { binaryRandom, normalRandom } from '../utils';
 import { FacilityAction, GameAction, IAction, SeasonAction } from './actions';
-import { IStudent } from './interfaces/studentInterface';
+import { StudentRedux } from './interfaces/studentInterface';
 import { IReducers } from './reducers';
 
-const initialState: IStudent = {
+const initialState: StudentRedux = {
   studentList: [],
 };
 
-const studentSlice = createSlice<IStudent, IReducers<IStudent>>({
+const studentSlice = createSlice<StudentRedux, IReducers<StudentRedux>>({
   name: 'student',
   initialState,
   reducers: {
-    initialize: (state: IStudent, action: IAction) => {
+    initialize: (state: StudentRedux, action: IAction) => {
       // FIXME: Student, IStudent, Person... 정리하기
-      const studentList: Student[] = Array(action.payload as number).fill({
+      const studentList: IStudent[] = Array(action.payload as number).fill({
         age: 20,
         sex: binaryRandom() as Sex,
         intelligence: normalRandom(0, 10),
@@ -29,7 +29,7 @@ const studentSlice = createSlice<IStudent, IReducers<IStudent>>({
         studentList,
       };
     },
-    execute: (state: IStudent, action: IAction) => {
+    execute: (state: StudentRedux, action: IAction) => {
       const gameAction = action.payload as GameAction;
       switch (gameAction) {
         // Season
