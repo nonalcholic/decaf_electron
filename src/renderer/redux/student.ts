@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IStudent } from 'renderer/objects/Student';
-import { Sex } from '../objects/Person';
-import { binaryRandom, normalRandom } from '../utils';
+import { IStudent, StudentMangager } from 'renderer/objects/Student';
 import { FacilityAction, GameAction, IAction, SeasonAction } from './actions';
 import { StudentRedux } from './interfaces/studentInterface';
 import { IReducers } from './reducers';
@@ -16,15 +14,13 @@ const studentSlice = createSlice<StudentRedux, IReducers<StudentRedux>>({
   reducers: {
     initialize: (state: StudentRedux, action: IAction) => {
       // FIXME: Student, IStudent, Person... 정리하기
-      const studentList: IStudent[] = Array(action.payload as number).fill({
-        id: 1,
-        age: 20,
-        sex: binaryRandom() as Sex,
-        intelligence: normalRandom(0, 10),
-        personality: normalRandom(0, 10),
-        charm: normalRandom(0, 10),
-        willingness: normalRandom(0, 10),
-      });
+      const studentList: IStudent[] = [
+        StudentMangager.create(),
+        StudentMangager.create(),
+        StudentMangager.create(),
+        StudentMangager.create(),
+        StudentMangager.create(),
+      ];
       return {
         ...state,
         studentList,
