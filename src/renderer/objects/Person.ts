@@ -6,17 +6,18 @@ export enum Sex {
 export interface IPerson {
   age: number;
 
-  readonly sex: Sex;
+  sex: Sex;
 
-  readonly intelligence: number;
+  intelligence: number;
 
-  readonly personality: number;
+  personality: number;
 
-  readonly charm: number;
+  charm: number;
 
-  readonly willingness: number;
+  willingness: number;
 }
 
+// FIXME: Person 클래스가 더이상 필요하지 않음
 export abstract class Person {
   protected _age: number;
 
@@ -68,5 +69,10 @@ export abstract class Person {
 
   get willingness(): number {
     return this._willingness;
+  }
+
+  // Temporary function
+  change(diff: number) {
+    this._age += diff;
   }
 }

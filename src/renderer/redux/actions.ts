@@ -1,77 +1,28 @@
-import { Dispatch } from 'redux';
-import { handleActions } from 'redux-actions';
-import { IBuildings, IActions } from './interfaces/actionsInterface';
+export interface IAction {
+  payload: GameAction | number | null;
+  type: string;
+}
 
-const BUILD_RESTRAUNT = 'BUILD/RESTRAUNT';
-const BUILD_DORMITORY = 'BUILD/DORMITORY';
-const BUILD_CAFE = 'BUILD/CAFE';
-const BUILD_LIBRARY = 'BUILD/LIBRARY';
+export type GameAction =
+  | DefaultAction
+  | FacilityAction
+  | PolicyAction
+  | SeasonAction;
 
-export const buildRestraunt = (build: boolean) => (dispatch: Dispatch) => {
-  dispatch({ type: BUILD_RESTRAUNT, payload: build });
-};
+export enum DefaultAction {
+  Weeks = 0, // 시간의 흐름
+}
 
-export const buildDormitory = (build: boolean) => (dispatch: Dispatch) => {
-  dispatch({ type: BUILD_DORMITORY, payload: build });
-};
+export enum FacilityAction {
+  Cafe = 1, // 카페 건설
+  Library, // 도서관 건설
+}
 
-export const buildCafe = (build: boolean) => (dispatch: Dispatch) => {
-  dispatch({ type: BUILD_CAFE, payload: build });
-};
+export enum PolicyAction {
+  Capacity = 2, // 입학 정원 변경
+}
 
-export const buildLibrary = (build: boolean) => (dispatch: Dispatch) => {
-  dispatch({ type: BUILD_LIBRARY, payload: build });
-};
-
-const initialBuildings: IBuildings = {
-  restaurant: false,
-  dormintory: false,
-  cafe: false,
-  library: false,
-};
-
-const initialState: IActions = {
-  buildings: initialBuildings,
-};
-
-export default handleActions<IActions, any>(
-  {
-    [BUILD_RESTRAUNT]: (state: IActions, action: any) => {
-      return {
-        ...state,
-        buildings: {
-          ...state.buildings,
-          restaurant: action.payload,
-        },
-      };
-    },
-    [BUILD_DORMITORY]: (state: IActions, action: any) => {
-      return {
-        ...state,
-        buildings: {
-          ...state.buildings,
-          dormintory: action.payload,
-        },
-      };
-    },
-    [BUILD_CAFE]: (state: IActions, action: any) => {
-      return {
-        ...state,
-        buildings: {
-          ...state.buildings,
-          cafe: action.payload,
-        },
-      };
-    },
-    [BUILD_LIBRARY]: (state: IActions, action: any) => {
-      return {
-        ...state,
-        buildings: {
-          ...state.buildings,
-          library: action.payload,
-        },
-      };
-    },
-  },
-  initialState
-);
+export enum SeasonAction {
+  Festival = 3, // 축제 기간
+  Midterm, // 중간고사 기간
+}
