@@ -6,6 +6,7 @@ interface IModal {
   visible: boolean;
 }
 
+// TODO: Delete styled-components
 const ModalWrapper = styled.div`
   box-sizing: border-box;
   display: ${(props: IModal) => (props.visible ? 'block' : 'none')};
