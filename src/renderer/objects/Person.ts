@@ -5,14 +5,12 @@ export enum Sex {
 
 export interface IPerson {
   age: number;
-
   sex: Sex;
-
   intelligence: number;
-
   personality: number;
-
   charm: number;
 
   willingness: number;
+  healthy: number;
+  happiness: number;
 }
