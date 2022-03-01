@@ -1,1 +1,3 @@
-export class Facility {}
+export default interface IFacility {
+  id: number;
+}

@@ -2,7 +2,6 @@ import { binaryRandom, normalRandom } from 'renderer/utils';
 import { IPerson, Sex } from './Person';
 
 export interface IStudent extends IPerson {
-  id: number;
   status: StudentStatus;
   majorId: number;
   knowledge: number;

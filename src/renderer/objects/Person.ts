@@ -4,6 +4,7 @@ export enum Sex {
 }
 
 export interface IPerson {
+  id: number;
   age: number;
   sex: Sex;
   intelligence: number;
