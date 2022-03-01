@@ -19,7 +19,7 @@ const universitySlice = createSlice<
       return { ...initialState };
     },
     execute: (state: UniversityRedux, action: IAction) => {
-      const gameAction = action.payload as GameAction;
+      const gameAction = action.payload.type as GameAction;
       switch (gameAction) {
         // Default
         case DefaultAction.Weeks:

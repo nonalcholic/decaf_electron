@@ -1,6 +1,14 @@
 import { createContext, Dispatch } from 'react';
+import { departmentActions } from 'renderer/redux/department';
+import { DepartmentMangager } from 'renderer/objects/Department';
+import { StudentMangager } from 'renderer/objects/Student';
 import { studentActions } from '../redux/student';
-import { DefaultAction, GameAction, SeasonAction } from '../redux/actions';
+import {
+  ActionPayload,
+  DefaultAction,
+  DepartmentAction,
+  StudentAction,
+} from '../redux/actions';
 import { universityActions } from '../redux/university';
 
 enum GameStatus {
@@ -13,7 +21,7 @@ class GameManager {
 
   private _status: GameStatus;
 
-  private _actionList: GameAction[];
+  private _actionList: ActionPayload[];
 
   constructor(dispatch: Dispatch<any>) {
     this._dispatch = dispatch;
@@ -32,17 +40,38 @@ class GameManager {
     this._status = GameStatus.Running;
 
     // Initialize
-    this._dispatch(studentActions.initialize(5));
-    this._dispatch(universityActions.initialize(null));
+    this._dispatch(universityActions.initialize({}));
+    this._dispatch(departmentActions.initialize({}));
+    this._dispatch(studentActions.initialize({}));
+
+    const department = DepartmentMangager.create('CS');
+    this._dispatch(
+      departmentActions.execute({
+        type: DepartmentAction.Create,
+        body: department,
+      })
+    );
+    this._dispatch(
+      studentActions.execute({
+        type: StudentAction.Create,
+        body: [
+          StudentMangager.create(department.id),
+          StudentMangager.create(department.id),
+          StudentMangager.create(department.id),
+          StudentMangager.create(department.id),
+          StudentMangager.create(department.id),
+        ],
+      })
+    );
 
     // FIXME: Temporary code
-    this.addAction(SeasonAction.Festival);
+    // this.addAction(SeasonAction.Festival);
     // this.addAction(GameAction.Midterm);
 
     return true;
   }
 
-  addAction(action: GameAction) {
+  addAction(action: ActionPayload) {
     this._actionList.push(action);
   }
 
@@ -63,7 +92,7 @@ class GameManager {
       // this._dispatch(studentActions.doEvent(action))}
     });
     this.cleanAction();
-    this.addAction(DefaultAction.Weeks);
+    this.addAction({ type: DefaultAction.Weeks });
   }
 }
 

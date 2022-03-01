@@ -3,7 +3,7 @@ import { IPerson, Sex } from './Person';
 
 export interface IStudent extends IPerson {
   status: StudentStatus;
-  majorId: number;
+  departmentId: number;
   knowledge: number;
   credits: number;
 }
@@ -17,13 +17,13 @@ export enum StudentStatus {
 export class StudentMangager {
   static total = 0;
 
-  static create(): IStudent {
+  static create(departmentId: number): IStudent {
     StudentMangager.total += 1;
 
     return {
       id: StudentMangager.total,
       status: StudentStatus.Attending,
-      majorId: 0,
+      departmentId,
       knowledge: 0,
       credits: 0,
       age: 20,

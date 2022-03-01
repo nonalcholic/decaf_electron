@@ -12,7 +12,7 @@ const StudentDisplay: React.FC<Props> = (props) => {
   return (
     <div className="student-display">
       <div>id: {studentData.id}</div>
-      <div>age: {studentData.age}</div>
+      <div>department: {studentData.departmentId}</div>
       <div>sex: {studentData.sex}</div>
       <div>charm: {Math.round(studentData.charm)}</div>
       <div>intel: {Math.round(studentData.intelligence)}</div>

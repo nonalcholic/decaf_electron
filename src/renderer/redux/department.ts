@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IAction } from './actions';
+import { DepartmentAction, IAction } from './actions';
 import { DepartmentRedux } from './interfaces/departmentInterface';
 import { IReducers } from './reducers';
 
@@ -18,7 +18,16 @@ const departmentSlice = createSlice<
       return { ...initialState };
     },
     execute: (state: DepartmentRedux, action: IAction) => {
-      // return;
+      const gameAction = action.payload.type as DepartmentAction;
+      switch (gameAction) {
+        case DepartmentAction.Create:
+          return {
+            ...state,
+            departmentList: [...state.departmentList, action.payload.body],
+          };
+        default:
+          return { ...state };
+      }
     },
   },
 });
