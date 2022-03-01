@@ -6,6 +6,7 @@ interface IModal {
   visible: boolean;
 }
 
+// TODO: Delete styled-components
 const ModalWrapper = styled.div`
   box-sizing: border-box;
   display: ${(props: IModal) => (props.visible ? 'block' : 'none')};
@@ -57,7 +58,7 @@ const ModalClose = styled.div`
   cursor: pointer;
 `;
 
-interface ModalProps {
+interface Props {
   className: string;
   onClose: React.MouseEventHandler<HTMLDivElement>;
   maskClosable: boolean;
@@ -65,15 +66,9 @@ interface ModalProps {
   visible: boolean;
   children: JSX.Element;
 }
-
-function Modal({
-  className,
-  onClose,
-  maskClosable,
-  closable,
-  visible,
-  children,
-}: ModalProps) {
+const Modal: React.FC<Props> = (props: Props) => {
+  const { className, onClose, maskClosable, closable, visible, children } =
+    props;
   const onMaskClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
@@ -115,6 +110,6 @@ function Modal({
       </Portal>
     </>
   );
-}
+};
 
 export default Modal;

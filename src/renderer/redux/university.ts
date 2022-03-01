@@ -1,21 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { DefaultAction, GameAction, IAction } from './actions';
-import { IUniversity } from './interfaces/universityInterface';
+import { UniversityRedux } from './interfaces/universityInterface';
 import { IReducers } from './reducers';
 
-const initialState: IUniversity = {
+const initialState: UniversityRedux = {
   weeks: 0,
   reputation: 0,
 };
 
-const universitySlice = createSlice<IUniversity, IReducers<IUniversity>>({
+const universitySlice = createSlice<
+  UniversityRedux,
+  IReducers<UniversityRedux>
+>({
   name: 'university',
   initialState,
   reducers: {
     initialize: () => {
       return { ...initialState };
     },
-    execute: (state: IUniversity, action: IAction) => {
+    execute: (state: UniversityRedux, action: IAction) => {
       const gameAction = action.payload as GameAction;
       switch (gameAction) {
         // Default

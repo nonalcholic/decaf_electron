@@ -1,9 +1,9 @@
 import './StudentDisplay.scss';
 import React from 'react';
-import { IPerson } from 'renderer/objects/Person';
+import { IStudent } from 'renderer/objects/Student';
 
 interface Props {
-  studentData: IPerson;
+  studentData: IStudent;
 }
 const StudentDisplay: React.FC<Props> = (props) => {
   const { studentData } = props;
@@ -11,6 +11,7 @@ const StudentDisplay: React.FC<Props> = (props) => {
   if (!studentData) return null;
   return (
     <div className="student-display">
+      <div>id: {studentData.id}</div>
       <div>age: {studentData.age}</div>
       <div>sex: {studentData.sex}</div>
       <div>charm: {Math.round(studentData.charm)}</div>

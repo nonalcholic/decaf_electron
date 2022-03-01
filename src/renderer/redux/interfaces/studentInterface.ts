@@ -1,5 +1,5 @@
-import { IPerson } from 'renderer/objects/Person';
+import { IStudent } from 'renderer/objects/Student';
 
-export interface IStudent {
-  studentList: IPerson[];
+export interface StudentRedux {
+  studentList: IStudent[];
 }
