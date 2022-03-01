@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IStudent, StudentMangager } from 'renderer/objects/Student';
-import {
-  FacilityAction,
-  GameAction,
-  IAction,
-  SeasonAction,
-  StudentAction,
-} from './actions';
+import { GameAction, IAction, StudentAction } from './actions';
 import { StudentRedux } from './interfaces/studentInterface';
 import { IReducers } from './reducers';
 
